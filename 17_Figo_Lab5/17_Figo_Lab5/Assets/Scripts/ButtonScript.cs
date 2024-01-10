@@ -13,15 +13,22 @@ public class ButtonScript : MonoBehaviour
     }
     public void Restart()
     {
-        switch (GM.gameLevel)
+        if (SceneManager.GetActiveScene().name == "GameLose")
         {
-            case 1:
-                SceneManager.LoadScene("GamePlay_Level1");
-                break;
+            switch (GM.gameLevel)
+            {
+                case 1:
+                    SceneManager.LoadScene("GamePlay_Level1");
+                    break;
 
-            case 2:
-                SceneManager.LoadScene("GamePlay_Level2");
-                break;
+                case 2:
+                    SceneManager.LoadScene("GamePlay_Level2");
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "GameWinScene")
+        {
+            SceneManager.LoadScene("GamePlay_Level1");
         }
     }
 }

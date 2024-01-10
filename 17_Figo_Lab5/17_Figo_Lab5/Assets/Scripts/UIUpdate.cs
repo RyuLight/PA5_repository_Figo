@@ -14,8 +14,16 @@ public class UIUpdate : MonoBehaviour
         totalCoin = GameObject.FindGameObjectsWithTag("Coin").Length;
         if (totalCoin <= 0)
         {
-            //SceneManager.LoadScene("GamePlay_Level2");
-            SceneManager.LoadScene("GameWinScene");
+            if (SceneManager.GetActiveScene().name == "GamePlay_Level1")
+            {
+                SceneManager.LoadScene("GamePlay_Level2");
+                //SceneManager.LoadScene("GameWinScene");
+            }
+            else if (SceneManager.GetActiveScene().name == "GamePlay_Level2")
+            {
+                //SceneManager.LoadScene("GamePlay_Level2");
+                SceneManager.LoadScene("GameWinScene");
+            }
         }
     }
 }
